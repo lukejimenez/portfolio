@@ -1,45 +1,379 @@
-#root {
-  max-width: 1280px;
+/* ============================
+   🌐 GLOBAL LAYOUT
+============================ */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+.App {
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* ============================
+   🏷️ HEADER
+============================ */
+.site-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.subtitle {
+  color: #777;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+/* ============================
+   📦 PROJECT GRID
+============================ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+.project-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Overlay (text area) */
+.project-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  pointer-events: none;
+}
+
+/* Project title text */
+.project-card h2 {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  margin: 0;
+}
+
+/* ============================
+   🔒 LOCKED PROJECTS
+============================ */
+.project-card.locked {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-card.locked img {
+  filter: blur(4px) brightness(0.7);
+  transition: filter 0.3s ease;
+}
+
+.project-card.locked:hover img {
+  filter: blur(2px) brightness(0.9);
+}
+
+.lock-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================
+   🔑 PASSWORD MODAL
+============================ */
+.password-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.password-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 300px;
+}
+
+.password-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.password-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.password-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.password-buttons button[type='submit'] {
+  background-color: #007bff;
+  color: white;
+}
+
+.password-buttons button[type='button'] {
+  background-color: #ccc;
+}
+
+.error-text {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.input-error {
+  border-color: #d9534f;
+  background-color: #ffe6e6;
+}
+
+/* ============================
+   📄 PROJECT DETAIL
+============================ */
+.project-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
+}
+
+.detail-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.project-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-detail p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   👥 CREATORS & CONTRIBUTIONS
+============================ */
+/* .project-description {
+  margin-bottom: 1.5rem;
+} */
+
+.creators,
+.creator,
+.exhibitionCollaborators,
+.contributions {
+  /* margin-bottom: 1.5rem; */
+  color: #555; /* unified text color */
+}
+
+.credits {
+  margin-top: 2rem;           /* space above (same as gallery spacing) */
+  margin-bottom: 2rem;        /* space below (same as project links spacing) */
+  text-align: center;         /* centers the text */
+  font-style: italic;
+  color: #777;                /* slightly lighter grey than #555 */
+  font-size: 0.9rem;          /* optional: make it a bit subtler */
+}
+
+.project-detail h3.project-creators {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  /* margin-top: -0.25rem;
+  margin-bottom: 1rem; */
+  font-style: italic;
+}
+
+.tools ul,
+.contributions ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+/* .tools ul li,
+.contributions ul li {
+  margin-bottom: 0.4rem;
+} */
+
+/* ============================
+   🎥 MEDIA
+============================ */
+
+/* Responsive 16:9 embed */
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-embed img { /* if there is no video, use an image instead */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================
+   🖼️ IMAGE PREVIEW (for non-video projects)
+============================ */
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.image-wrapper img {
+  max-height: 360px; /* roughly same visual height as a 16:9 video */
+  width: auto;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: contain; /* ensures full image shows */
+}
+
+/* Fixed-width centered video (optional) */
+.video-wrapper {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.video-wrapper iframe {
+  width: 560px;
+  height: 315px;
+  max-width: 100%;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360 deg);
-  }
+/* ============================
+   🔗 LINKS
+============================ */
+.project-link a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.project-link a:hover {
+  text-decoration: underline;
 }
 
-.card {
-  padding: 2em;
+.axlab-link a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.read-the-docs {
-  color: #888;
+.axlab-link a:hover {
+  text-decoration: underline;
 }
 
+/* ============================
+   🖼️ GALLERY
+============================ */
+.gallery {
+  margin-top: 2rem;
+}
 
+.gallery h4 {
+  margin-bottom: 1rem;
+}
+
+.image-gallery {
+  column-count: 2;
+  column-gap: 1rem;
+}
+
+.image-gallery img {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  break-inside: avoid;
+}
