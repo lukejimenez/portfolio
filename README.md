@@ -1,16 +1,25 @@
-# React + Vite
+# Luke Jimenez — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site built with React, Vite, and Tailwind.
 
-Currently, two official plugins are available:
+**Live site:** https://lukejimenez.github.io/portfolio/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Projects featured
 
-## React Compiler
+- **penPal** — tendon-driven handheld sketching robot with an independently mobile tip. Co-authored research published at [CHI 2026](https://dl.acm.org/doi/10.1145/3772318.3790391).
+- **Shape n' Swarm** — swarm robotics platform for conversational, shape-aware authoring with an LLM. Co-authored research published at [UIST 2025](https://dl.acm.org/doi/10.1145/3746059.3747781).
+- **STONEs** — interactive kinetic sculptures with embedded flywheel mechanisms, exhibited to 112,000+ visitors at Ars Electronica '24.
+- **Threading Space** — exhibition support for a kinetic sculpture shown at ACM C&C 2024 and the Museum of Science and Industry.
+- **Go (game)** — interactive Go implementation in Pygame, final project for CMSC 14200.
+- **Stroke Risk ML Model** — a stroke-risk prediction model built with scikit-learn and pandas.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+React, Vite, Tailwind CSS, deployed via GitHub Pages.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Running locally
+
+```bash
+npm install
+npm run dev
+```

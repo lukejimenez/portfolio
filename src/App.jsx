@@ -19,7 +19,7 @@ const projects = [
     contributions: [
       'Integrated motor control algorithms and a custom GUI into a complete software pipeline.',
       'Designed and implemented a kinematic model to simulate tendon-driven actuation, enabiling accurate end-effector positioning; facilitated real-time textural input via an intuitive user interface.',
-      'Successful deployment in a user study with 10 participants; co-authored research submitted to CHI ’26, currently undergoing revise & resubmit.'
+      'Successful deployment in a user study with 10 participants; co-authored research published at CHI ’26.'
     ],
     images: [
       './assets/penpal/Artboard 4@2x.png',
@@ -27,6 +27,10 @@ const projects = [
       './assets/penpal/workspace_labeled.png'
     ],
     video: 'https://www.youtube.com/embed/zUBWr1zBPM8',
+    publication: {
+      title: 'CHI 2026 Publication',
+      url: 'https://dl.acm.org/doi/10.1145/3772318.3790391'
+    },
     credits: ['Video produced by Tucker Rae-Grant, uploaded by me only for temporary use in this portfolio.']
   },
   {
